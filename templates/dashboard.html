@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<section class="cards">
+
+    <div class="card">
+        <h3>CPU Usage</h3>
+        <p id="cpu">--%</p>
+    </div>
+
+    <div class="card">
+        <h3>Memory</h3>
+        <p id="memory">--%</p>
+    </div>
+
+    <div class="card">
+        <h3>Disk</h3>
+        <p id="disk">--%</p>
+    </div>
+
+    <div class="card">
+        <h3>Network</h3>
+        <p id="network">Waiting...</p>
+    </div>
+
+</section>
+
+<section class="info">
+
+<h2>System Information</h2>
+
+<table>
+
+<tr><td>Hostname</td><td id="hostname"></td></tr>
+
+<tr><td>OS</td><td id="os"></td></tr>
+
+<tr><td>Kernel</td><td id="kernel"></td></tr>
+
+<tr><td>Architecture</td><td id="arch"></td></tr>
+
+<tr><td>Python</td><td id="python"></td></tr>
+
+<tr><td>CPU Cores</td><td id="cores"></td></tr>
+
+<tr><td>RAM</td><td id="ram"></td></tr>
+
+<tr><td>Boot Time</td><td id="boot"></td></tr>
+
+<tr><td>Uptime</td><td id="uptime"></td></tr>
+
+</table>
+
+</section>
+
+{% endblock %}

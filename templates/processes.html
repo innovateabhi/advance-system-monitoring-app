@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}
+Process Manager
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+<h2>System Processes</h2>
+
+<input
+type="text"
+id="search"
+placeholder="Search process..."
+>
+
+</div>
+
+<div class="process-summary">
+
+<div class="card">
+
+<h3>Total</h3>
+
+<h1 id="total"></h1>
+
+</div>
+
+<div class="card">
+
+<h3>Running</h3>
+
+<h1 id="running"></h1>
+
+</div>
+
+<div class="card">
+
+<h3>Sleeping</h3>
+
+<h1 id="sleeping"></h1>
+
+</div>
+
+<div class="card">
+
+<h3>Stopped</h3>
+
+<h1 id="stopped"></h1>
+
+</div>
+
+<div class="card">
+
+<h3>Zombie</h3>
+
+<h1 id="zombie"></h1>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<table id="processTable">
+
+<thead>
+
+<tr>
+
+<th>PID</th>
+
+<th>Name</th>
+
+<th>User</th>
+
+<th>CPU %</th>
+
+<th>RAM %</th>
+
+<th>Status</th>
+
+<th>Started</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/processes.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}
+Linux Services
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+<h2>System Services</h2>
+
+<input
+id="serviceSearch"
+type="text"
+placeholder="Search service..."
+>
+
+</div>
+
+<div class="service-summary">
+
+<div class="card">
+
+<h3>Running</h3>
+
+<h1 id="running"></h1>
+
+</div>
+
+<div class="card">
+
+<h3>Stopped</h3>
+
+<h1 id="stopped"></h1>
+
+</div>
+
+<div class="card">
+
+<h3>Failed</h3>
+
+<h1 id="failed"></h1>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<table id="serviceTable">
+
+<thead>
+
+<tr>
+
+<th>Service</th>
+
+<th>Status</th>
+
+<th>Enabled</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/services.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}
+Memory Monitoring
+{% endblock %}
+
+{% block content %}
+
+<div class="memory-grid">
+
+    <div class="card">
+
+        <h2>Memory Usage</h2>
+
+        <h1 id="memoryUsage">0%</h1>
+
+        <div class="progress">
+
+            <div id="memoryBar"></div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Memory Information</h2>
+
+        <table>
+
+            <tr><td>Total</td><td id="total"></td></tr>
+
+            <tr><td>Used</td><td id="used"></td></tr>
+
+            <tr><td>Available</td><td id="available"></td></tr>
+
+            <tr><td>Free</td><td id="free"></td></tr>
+
+            <tr><td>Cached</td><td id="cached"></td></tr>
+
+            <tr><td>Buffers</td><td id="buffers"></td></tr>
+
+        </table>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Swap Memory</h2>
+
+        <table>
+
+            <tr><td>Total</td><td id="swapTotal"></td></tr>
+
+            <tr><td>Used</td><td id="swapUsed"></td></tr>
+
+            <tr><td>Free</td><td id="swapFree"></td></tr>
+
+            <tr><td>Usage</td><td id="swapPercent"></td></tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<canvas id="memoryChart"></canvas>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/memory.js') }}"></script>
+
+{% endblock %}

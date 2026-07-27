@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}
+Disk Monitoring
+{% endblock %}
+
+{% block content %}
+
+<div class="disk-grid">
+
+    <div class="card">
+
+        <h2>Overall Disk Usage</h2>
+
+        <h1 id="diskUsage">0%</h1>
+
+        <div class="progress">
+
+            <div id="diskBar"></div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Storage Summary</h2>
+
+        <table>
+
+            <tr><td>Total</td><td id="totalDisk"></td></tr>
+
+            <tr><td>Used</td><td id="usedDisk"></td></tr>
+
+            <tr><td>Free</td><td id="freeDisk"></td></tr>
+
+        </table>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Disk I/O</h2>
+
+        <table>
+
+            <tr><td>Read Count</td><td id="readCount"></td></tr>
+
+            <tr><td>Write Count</td><td id="writeCount"></td></tr>
+
+            <tr><td>Read</td><td id="readMB"></td></tr>
+
+            <tr><td>Write</td><td id="writeMB"></td></tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+<h2>Mounted Partitions</h2>
+
+<table id="partitionTable">
+
+<thead>
+
+<tr>
+
+<th>Device</th>
+
+<th>Mount</th>
+
+<th>File System</th>
+
+<th>Total</th>
+
+<th>Used</th>
+
+<th>Free</th>
+
+<th>Usage</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+<canvas id="diskChart"></canvas>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/disk.js') }}"></script>
+
+{% endblock %}

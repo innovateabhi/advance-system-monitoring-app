@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}
+Network Monitoring
+{% endblock %}
+
+{% block content %}
+
+<div class="network-grid">
+
+<div class="card">
+
+<h2>Live Speed</h2>
+
+<h3>Upload</h3>
+
+<h1 id="uploadSpeed">0 MB/s</h1>
+
+<h3>Download</h3>
+
+<h1 id="downloadSpeed">0 MB/s</h1>
+
+</div>
+
+<div class="card">
+
+<h2>Network Information</h2>
+
+<table>
+
+<tr><td>Hostname</td><td id="hostname"></td></tr>
+
+<tr><td>IP Address</td><td id="ip"></td></tr>
+
+<tr><td>MAC Address</td><td id="mac"></td></tr>
+
+<tr><td>Bytes Sent</td><td id="sent"></td></tr>
+
+<tr><td>Bytes Received</td><td id="received"></td></tr>
+
+<tr><td>Packets Sent</td><td id="packetSent"></td></tr>
+
+<tr><td>Packets Received</td><td id="packetReceived"></td></tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<h2>Interfaces</h2>
+
+<div id="interfaces"></div>
+
+</div>
+
+</div>
+
+<canvas id="networkChart"></canvas>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/network.js') }}"></script>
+
+{% endblock %}

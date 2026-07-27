@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}
+CPU Monitoring
+{% endblock %}
+
+{% block content %}
+
+<div class="cpu-grid">
+
+<div class="card">
+
+<h2>Overall CPU Usage</h2>
+
+<h1 id="cpuUsage">0%</h1>
+
+<div class="progress">
+
+<div id="cpuBar"></div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>CPU Information</h2>
+
+<table>
+
+<tr>
+
+<td>Physical Cores</td>
+
+<td id="physical"></td>
+
+</tr>
+
+<tr>
+
+<td>Logical Cores</td>
+
+<td id="logical"></td>
+
+</tr>
+
+<tr>
+
+<td>Current Frequency</td>
+
+<td id="currentFreq"></td>
+
+</tr>
+
+<tr>
+
+<td>Maximum Frequency</td>
+
+<td id="maxFreq"></td>
+
+</tr>
+
+<tr>
+
+<td>Minimum Frequency</td>
+
+<td id="minFreq"></td>
+
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="card">
+
+<h2>Load Average</h2>
+
+<p>1 Minute : <span id="load1"></span></p>
+
+<p>5 Minutes : <span id="load5"></span></p>
+
+<p>15 Minutes : <span id="load15"></span></p>
+
+</div>
+
+<div class="card">
+
+<h2>Per Core Usage</h2>
+
+<div id="cores"></div>
+
+</div>
+
+</div>
+
+<canvas id="cpuChart"></canvas>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/cpu.js') }}"></script>
+
+{% endblock %}

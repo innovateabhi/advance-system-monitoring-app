@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Linux System Monitor</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>System Monitor</h2>
+
+    <ul>
+
+        <li class="active">Dashboard</li>
+
+        <li>CPU</li>
+
+        <li>Memory</li>
+
+        <li>Disk</li>
+
+        <li>Network</li>
+
+        <li>Processes</li>
+
+        <li>Services</li>
+
+        <li>Logs</li>
+
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <header>
+
+        <h1>Linux System Monitoring Dashboard</h1>
+
+    </header>
+
+    <section class="cards">
+
+        <div class="card">
+            <h3>CPU Usage</h3>
+            <p id="cpu">--%</p>
+        </div>
+
+        <div class="card">
+            <h3>Memory</h3>
+            <p id="memory">--%</p>
+        </div>
+
+        <div class="card">
+            <h3>Disk</h3>
+            <p id="disk">--%</p>
+        </div>
+
+        <div class="card">
+            <h3>Network</h3>
+            <p id="network">Waiting...</p>
+        </div>
+
+    </section>
+
+    <section class="info">
+
+        <h2>System Information</h2>
+
+        <table>
+
+            <tr>
+                <td>Hostname</td>
+                <td id="hostname">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Operating System</td>
+                <td id="os">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Kernel</td>
+                <td id="kernel">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Architecture</td>
+                <td id="arch">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Python</td>
+                <td id="python">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>CPU Cores</td>
+                <td id="cores">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>RAM</td>
+                <td id="ram">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Boot Time</td>
+                <td id="boot">Loading...</td>
+            </tr>
+
+            <tr>
+                <td>Uptime</td>
+                <td id="uptime">Loading...</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

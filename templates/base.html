@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Linux System Monitor</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <h2>System Monitor</h2>
+
+    </div>
+
+    <nav class="sidebar-menu">
+
+    <a href="/" class="nav-btn {% if request.path == '/' %}active{% endif %}">
+        🏠 <span>Dashboard</span>
+    </a>
+
+    <a href="/cpu" class="nav-btn {% if request.path == '/cpu' %}active{% endif %}">
+        🖥 <span>CPU</span>
+    </a>
+
+    <a href="/memory" class="nav-btn {% if request.path == '/memory' %}active{% endif %}">
+        💾 <span>Memory</span>
+    </a>
+
+    <a href="/disk" class="nav-btn {% if request.path == '/disk' %}active{% endif %}">
+        🗄 <span>Disk</span>
+    </a>
+
+    <a href="/network" class="nav-btn {% if request.path == '/network' %}active{% endif %}">
+        🌐 <span>Network</span>
+    </a>
+
+    <a href="/processes" class="nav-btn {% if request.path == '/processes' %}active{% endif %}">
+        ⚙ <span>Processes</span>
+    </a>
+
+    <a href="/services" class="nav-btn {% if request.path == '/services' %}active{% endif %}">
+        🔧 <span>Services</span>
+    </a>
+
+    <a href="/logs" class="nav-btn {% if request.path == '/logs' %}active{% endif %}">
+        📜 <span>Logs</span>
+    </a>
+
+</nav>
+
+</div>
+
+<div class="main">
+
+    <header>
+
+        <h1>{% block title %}{% endblock %}</h1>
+
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+{% block scripts %}
+
+{% endblock %}
+
+</body>
+
+</html>

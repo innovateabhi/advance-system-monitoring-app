@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+System Logs
+{% endblock %}
+
+{% block content %}
+
+<div class="card">
+
+    <h2>System Logs</h2>
+
+    <input
+        type="text"
+        id="searchLog"
+        placeholder="Search logs..."
+    >
+
+</div>
+
+<div class="card">
+
+<table id="logTable">
+
+<thead>
+
+<tr>
+
+<th>Level</th>
+
+<th>Log Message</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{{ url_for('static', filename='js/logs.js') }}"></script>
+
+{% endblock %}
