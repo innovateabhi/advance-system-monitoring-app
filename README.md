@@ -165,85 +165,49 @@ system-monitoring-app/
 
 ## Dashboard
 
-> *(Insert Screenshot Here)*
+> ![Dashboard](assets/dashboard.png)
 
 ---
 
 ## CPU Monitoring
 
-> *(Insert Screenshot Here)*
+> ![CPU](assets/cpu.png)
 
 ---
 
 ## Memory Monitoring
 
-> *(Insert Screenshot Here)*
+> ![Memory](assets/memory.png)
 
 ---
 
 ## Disk Monitoring
 
-> *(Insert Screenshot Here)*
+> ![Disk](assets/disk.png)
 
 ---
 
 ## Network Monitoring
 
-> *(Insert Screenshot Here)*
+> ![Network](assets/network.png)
 
 ---
 
 ## Running Processes
 
-> *(Insert Screenshot Here)*
+> ![Processes](assets/processes.jpg)
 
 ---
 
 ## Services
 
-> *(Insert Screenshot Here)*
+> ![Services](assets/services.jpg)
 
 ---
 
 ## Logs
 
-> *(Insert Screenshot Here)*
-
----
-
-## HTTPS Enabled
-
-> *(Insert Screenshot Here)*
-
----
-
-## Docker Container
-
-> *(Insert Screenshot Here)*
-
----
-
-## Nginx Reverse Proxy
-
-> *(Insert Screenshot Here)*
-
----
-
-## Fail2Ban
-
-> *(Insert Screenshot Here)*
-
----
-
-## SELinux Status
-
-> *(Insert Screenshot Here)*
-
----
-
-## Firewalld
-
-> *(Insert Screenshot Here)*
+> ![Logs](assets/logs.jpg)
 
 ---
 # Installation Guide
