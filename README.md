@@ -263,7 +263,7 @@ pip3 --version
 ## Step 3: Clone the Repository
 
 ```bash
-git clone https://github.com/innovateabhi/system-monitoring-app-rhel.git
+git clone https://github.com/innovateabhi/advance-system-monitoring-app.git
 ```
 
 ```bash
