@@ -541,7 +541,10 @@ sudo systemctl status nginx
 # Step 17 — Configure Reverse Proxy
 
 Create the configuration file.
-Config file:
+
+```bash
+sudo nano /etc/nginx/conf.d/system-monitor.conf
+```
 ```
 server {
     listen 80;
@@ -599,10 +602,6 @@ server {
     }
 
 }
-```
-
-```bash
-sudo nano /etc/nginx/conf.d/system-monitor.conf
 ```
 
 Reload configuration.
