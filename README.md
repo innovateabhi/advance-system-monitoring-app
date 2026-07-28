@@ -636,6 +636,11 @@ sudo openssl req -x509 -nodes -days 365 \
 -keyout /etc/nginx/ssl/system-monitor.key \
 -out /etc/nginx/ssl/system-monitor.crt
 ```
+Allow Nginx to connect to Network Services
+
+```bash
+sudo setsebool -P httpd_can_network_connect 1
+```
 
 Test Nginx configuration.
 
