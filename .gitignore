@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.env
+
+# Logs
+logs/*.log
+*.log
+
+# Docker
+*.pid
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# SSL Certificates
+nginx/ssl/*.crt
+nginx/ssl/*.key
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+
+# Secrets
+.env
+*.pem
+*.key
+
+# Docker volumes
+docker-data/

@@ -1,0 +1,41 @@
+services:
+  system-monitor:
+    build: .
+    container_name: system-monitor
+
+    ports:
+      - "5000:5000"
+
+    env_file:
+      - .env
+
+    restart: unless-stopped
+
+    volumes:
+      - ./logs:/app/logs:Z
+
+    networks:
+      - monitor-network
+
+    security_opt:
+      - no-new-privileges:true
+
+    cap_drop:
+      - ALL
+
+    pids_limit: 200
+
+    mem_limit: 512m
+
+    cpus: "1.0"
+
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+networks:
+  monitor-network:
+    driver: bridge
