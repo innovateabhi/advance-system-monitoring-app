@@ -267,7 +267,7 @@ git clone https://github.com/innovateabhi/advance-system-monitoring-app.git
 ```
 
 ```bash
-cd system-monitoring-app-rhel
+cd advance-system-monitoring-app
 ```
 
 ---
