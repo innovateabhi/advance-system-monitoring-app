@@ -656,7 +656,117 @@ sudo systemctl restart nginx
 
 ---
 
-# Step 20 — Access the Secure Dashboard
+# Step 20 — Update Nginx Configuration for Security Hardening
+
+After successfully configuring HTTPS, replace the contents of the following file:
+
+```bash
+sudo vim /etc/nginx/conf.d/system-monitor.conf
+```
+
+with:
+
+```nginx
+server {
+
+    listen 80;
+    listen [::]:80;
+
+    server_name _;
+
+    return 301 https://$host$request_uri;
+}
+
+server {
+
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+
+    server_name _;
+
+    ssl_certificate     /etc/nginx/ssl/system-monitor.crt;
+    ssl_certificate_key /etc/nginx/ssl/system-monitor.key;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+
+    server_tokens off;
+
+    client_max_body_size 10M;
+    client_body_timeout 10s;
+    client_header_timeout 10s;
+    send_timeout 10s;
+    keepalive_timeout 15s;
+
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    location / {
+
+        limit_req zone=api_limit burst=20 nodelay;
+
+        proxy_pass http://127.0.0.1:5000;
+
+        proxy_http_version 1.1;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        proxy_cache_bypass $http_upgrade;
+
+    }
+
+}
+```
+
+---
+
+Also update the following file:
+
+```bash
+sudo vim /etc/nginx/nginx.conf
+```
+
+Inside the `http {}` block, add or replace the following directives:
+
+```nginx
+server_tokens off;
+
+client_max_body_size 10M;
+
+client_body_timeout 10s;
+client_header_timeout 10s;
+send_timeout 10s;
+keepalive_timeout 15s;
+
+limit_req_zone $binary_remote_addr zone=api_limit:10m rate=10r/s;
+```
+
+> **Note:** If any of these directives (such as `keepalive_timeout`) already exist in the file, replace the existing value instead of adding a duplicate.
+
+Finally, verify and restart Nginx:
+
+```bash
+sudo nginx -t
+sudo systemctl restart nginx
+```
+
+
+
+
+# Step 21 — Access the Secure Dashboard
 
 Open the browser.
 
@@ -670,7 +780,7 @@ The dashboard should now load over **HTTPS**.
 
 ---
 
-# Step 21 — Verify Reverse Proxy
+# Step 22 — Verify Reverse Proxy
 
 ```bash
 curl http://127.0.0.1:5000
