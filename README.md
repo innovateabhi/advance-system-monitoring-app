@@ -307,7 +307,7 @@ pip install -r requirements.txt
 ## Step 6: Verify Project Structure
 
 ```
-system-monitoring-app-rhel/
+advance-system-monitoring-app/
 │
 ├── app.py
 ├── config.py
