@@ -266,44 +266,41 @@ This project was built and tested on **Fedora Linux (RHEL Based)**.
 - Fail2Ban
 
 ---
+# 🚀 Initial Project Setup (Development Mode)
 
-# Step 1 — Update the System
+This section explains how to run the Flask application directly on Fedora before Dockerizing it.
+
+---
+
+## Step 1: Update the System
 
 ```bash
 sudo dnf update -y
 sudo dnf upgrade -y
-sudo reboot
-```
-
-Verify the OS version.
-
-```bash
-cat /etc/os-release
 ```
 
 ---
 
-# Step 2 — Install Git
+## Step 2: Install Python
 
 ```bash
-sudo dnf install git -y
+sudo dnf install python3 python3-pip -y
 ```
 
-Verify installation.
+Verify installation
 
 ```bash
-git --version
+python3 --version
+pip3 --version
 ```
 
 ---
 
-# Step 3 — Clone the Repository
+## Step 3: Clone the Repository
 
 ```bash
 git clone https://github.com/innovateabhi/system-monitoring-app-rhel.git
 ```
-
-Move into the project directory.
 
 ```bash
 cd system-monitoring-app-rhel
@@ -311,7 +308,105 @@ cd system-monitoring-app-rhel
 
 ---
 
-# Step 4 — Install Docker
+## Step 4: Create a Virtual Environment
+
+```bash
+python3 -m venv venv
+```
+
+Activate it
+
+```bash
+source venv/bin/activate
+```
+
+Your terminal should now show
+
+```
+(venv)
+```
+
+---
+
+## Step 5: Install Python Dependencies
+
+```bash
+pip install --upgrade pip
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Step 6: Verify Project Structure
+
+```
+system-monitoring-app-rhel/
+│
+├── app.py
+├── config.py
+├── requirements.txt
+├── Dockerfile
+├── docker-compose.yml
+├── routes/
+├── services/
+├── templates/
+├── static/
+├── logs/
+├── nginx/
+├── security/
+└── log_monitor/
+```
+
+---
+
+## Step 7: Run the Flask Application
+
+```bash
+python app.py
+```
+
+Expected output
+
+```
+* Running on http://127.0.0.1:5000
+```
+
+Open your browser
+
+```
+http://localhost:5000
+```
+
+The Linux System Monitoring Dashboard should now appear.
+
+---
+
+## Step 8: Stop the Server
+
+Press
+
+```
+CTRL + C
+```
+
+Deactivate virtual environment
+
+```bash
+deactivate
+```
+
+---
+
+# 🐳 Containerizing the Application
+
+After confirming that the Flask application works correctly in development mode, we can now containerize it using Docker.
+
+---
+
+# Step 9 — Install Docker
 
 ```bash
 sudo dnf install docker -y
@@ -343,7 +438,7 @@ docker --version
 
 ---
 
-# Step 5 — Install Docker Compose
+# Step 10 — Install Docker Compose
 
 ```bash
 sudo dnf install docker-compose -y
@@ -363,7 +458,7 @@ docker-compose --version
 
 ---
 
-# Step 6 — Add User to Docker Group
+# Step 11 — Add User to Docker Group
 
 ```bash
 sudo usermod -aG docker $USER
@@ -383,7 +478,7 @@ docker ps
 
 ---
 
-# Step 7 — Build Docker Image
+# Step 12 — Build Docker Image
 
 ```bash
 docker compose build
@@ -397,7 +492,7 @@ docker compose up --build
 
 ---
 
-# Step 8 — Start the Application
+# Step 13 — Start the Application
 
 Run in detached mode.
 
@@ -421,7 +516,7 @@ Healthy
 
 ---
 
-# Step 9 — Verify Docker Logs
+# Step 14 — Verify Docker Logs
 
 ```bash
 docker logs system-monitor
@@ -435,7 +530,7 @@ docker logs -f system-monitor
 
 ---
 
-# Step 10 — Test Flask Application
+# Step 15 — Test Flask Application
 
 Open the browser.
 
@@ -453,7 +548,7 @@ You should receive the HTML page of the dashboard.
 
 ---
 
-# Step 11 — Install Nginx
+# Step 16 — Install Nginx
 
 ```bash
 sudo dnf install nginx -y
@@ -479,7 +574,7 @@ sudo systemctl status nginx
 
 ---
 
-# Step 12 — Configure Reverse Proxy
+# Step 17 — Configure Reverse Proxy
 
 Create the configuration file.
 
@@ -501,7 +596,7 @@ sudo systemctl restart nginx
 
 ---
 
-# Step 13 — Configure Firewall
+# Step 18 — Configure Firewall
 
 Allow HTTP.
 
@@ -529,7 +624,7 @@ sudo firewall-cmd --list-all
 
 ---
 
-# Step 14 — Generate SSL Certificate
+# Step 19 — Generate SSL Certificate
 
 Create SSL directory.
 
@@ -560,7 +655,7 @@ sudo systemctl restart nginx
 
 ---
 
-# Step 15 — Access the Secure Dashboard
+# Step 20 — Access the Secure Dashboard
 
 Open the browser.
 
@@ -574,7 +669,7 @@ The dashboard should now load over **HTTPS**.
 
 ---
 
-# Step 16 — Verify Reverse Proxy
+# Step 21 — Verify Reverse Proxy
 
 ```bash
 curl http://127.0.0.1:5000
@@ -1491,5 +1586,4 @@ Special thanks to the open-source communities behind:
 - Git
 
 ---
-
 
