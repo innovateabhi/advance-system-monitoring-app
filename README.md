@@ -195,19 +195,19 @@ system-monitoring-app/
 
 ## Running Processes
 
-> ![Processes](assets/processes.jpg)
+> ![Processes](assets/processes.jpeg)
 
 ---
 
 ## Services
 
-> ![Services](assets/services.jpg)
+> ![Services](assets/services.jpeg)
 
 ---
 
 ## Logs
 
-> ![Logs](assets/logs.jpg)
+> ![Logs](assets/logs.jpeg)
 
 ---
 # Installation Guide
