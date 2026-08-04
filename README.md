@@ -1,4 +1,4 @@
-# Linux System Monitoring Dashboard with Docker, Nginx, HTTPS, SELinux & Fail2Ban
+# Linux System Monitoring Dashboard with Docker, Nginx & HTTPS enabling
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![Flask](https://img.shields.io/badge/Flask-WebApp-green)
